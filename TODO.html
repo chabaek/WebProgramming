@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습 3-2</title>
+<style>
+	#bd {
+		width : 30%;
+		height : 40%;
+		background : yellow;
+		box-shadow: 5px;
+		padding : 50px;
+		margin-left : auto;
+		margin-right : auto;
+		margin-top : 50px;
+		box-shadow : 5px 5px 3px rgb(0,0,0,0.2);
+
+	}
+	
+	input[type="text"] {
+		width : 380px;
+		height : 30px;
+		border : none;
+		outline : none;
+		padding-left : 5px;
+		box-sizing : border-box;
+	}
+	
+	button {
+		width : 100px;
+		height : 29px;
+		background-color : blue;
+		border : none;
+		outline : none;	
+		margin-left : -30px;
+	}
+	
+	li {
+		border-bottom-style : underline;
+		border-bottom-style : dotted;
+		border-width : thin;	
+		padding-top : 5px;
+		padding-bottom : 5px;
+		background-color : brown;
+		position : relative;
+	}
+	
+	ul {
+		list-style : none;
+		padding-left : 0;
+		
+	}
+	
+	.xbtn:after {
+		display : inline-block;
+		content : "\00d7";
+		font-size : 30px;
+		padding : 0;
+	}
+	
+	.xbtn {
+		position :absolute;	
+		top : 0;
+		right:0;
+	}
+			
+	
+	
+</style>
+<script>
+	function addItem() {
+		let todo = document.getElementById("item");
+		let list = document.getElementById("todolist");
+		let listitem = document.createElement("li");
+		
+		let xbtn = document.createElement("button1");
+		xbtn.className = "xbtn";
+		
+		xbtn.onclick = function(e) {
+			let pnode = e.target.parentNode;
+			list.removeChild(pnode);
+		}
+		
+		
+		listitem.innerText = todo.value;
+		listitem.appendChild(xbtn);
+		list.appendChild(listitem);
+		
+		todo.value ="";
+		todo.focus();
+		
+	}
+</script>
+</head>
+<body>
+	<div id="bd">
+		<h2>My ToDo App</h2>
+		<hr>
+		<div>
+			<input id="item" type="text" value="할일을 입력하세요.." >
+			<button type = "button" onclick="addItem()">할일 추가</button>
+		</div>
+		<hr>
+		<ul id="todolist" class="list-group"></ul>
+	</div>
+</body>
+</html>
